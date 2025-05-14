@@ -2,4 +2,5 @@
 
 Ajout codecarbon :
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/f9ca2f47-2d84-4d7e-8604-384bdf274fe9)
+
