@@ -1,5 +1,7 @@
 import numpy as np  # Pour créer un vecteur de temps (np.linspace)
 from scipy.integrate import odeint  # Pour résoudre l'équation différentielle
+from codecarbon import EmissionsTracker
+import numpy as np
 
 # Cette fonction représente l'équation différentielle donnée par le prof
 # Elle modélise l'évolution de la température du câble Tc
@@ -13,4 +15,14 @@ def predict_temperature(ws, Ta, I, Tc0):
     t_minutes = np.linspace(0, 30*60, 30*60+1)
     sol = odeint(dTc_dt, Tc0, t_minutes, args=(ws, Ta, I))
     return sol.flatten().tolist()
+
+#codecarbon
+def simulate_heavy_computation():
+    tracker = EmissionsTracker()
+    tracker.start()
+
+    _ = np.random.random((10000, 10000))
+
+    emissions = tracker.stop()
+    return emissions  # en grammes de CO₂
 

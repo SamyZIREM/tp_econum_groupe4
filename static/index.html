@@ -59,6 +59,15 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       margin-bottom: 30px;
     }
+
+    #carbon-result {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-top: 20px;
+      max-width: 400px;
+    }
   </style>
 </head>
 <body>
@@ -72,6 +81,11 @@
   </form>
   <div id="result"></div>
   <div id="plot" style="width:100%;height:500px;"></div>
+
+  <hr>
+  <h2>Mesure CO₂ réelle avec CodeCarbon</h2>
+  <button onclick="runCarbonSimulation()">Simuler une grosse opération</button>
+  <div id="carbon-result"></div>
 
   <script>
     const form = document.getElementById('form');
@@ -119,6 +133,14 @@
         yaxis: { title: 'Température (°C)' }
       });
     });
+
+    async function runCarbonSimulation() {
+      const carbonResult = document.getElementById('carbon-result');
+      carbonResult.innerHTML = "Calcul en cours...";
+      const res = await fetch('http://127.0.0.1:8000/simulate-carbon');
+      const json = await res.json();
+      carbonResult.innerHTML = `<strong>CO₂ mesuré :</strong> ${json.co2_measured_grams.toFixed(6)} g`;
+    }
   </script>
 </body>
 </html>

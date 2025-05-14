@@ -4,6 +4,7 @@ from predict import predict_temperature
 import time
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from predict import simulate_heavy_computation
 import os
 
 app = FastAPI()
@@ -42,3 +43,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/")
 def root():
     return FileResponse(os.path.join("static", "index.html"))
+
+@app.get("/simulate-carbon")
+def simulate_carbon():
+    emissions = simulate_heavy_computation()
+    return {
+        "co2_measured_grams": emissions
+    }
