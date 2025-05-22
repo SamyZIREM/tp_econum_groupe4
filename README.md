@@ -1,5 +1,5 @@
 ### Pour lancer le projet, il faut saisir la commande : uvicorn api:app --reload
-### Pour lancer les tests de performance back : mkdocs serve -a localhost:8080 (car le port 8000 est déjà pris par l'appli)
+### Pour lancer la documentation : mkdocs serve -a localhost:8080 (car le port 8000 est déjà pris par l'appli)
 ### Pour les tests de performance back : python simulate_load.py (avant sa, faut se mettre dans le dossier Tests avec la commande "cd Tests")
 
 
