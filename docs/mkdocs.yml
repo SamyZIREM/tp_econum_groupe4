@@ -1,0 +1,8 @@
+site_name: PROJET ECONUM
+nav:
+  - Accueil: index.md
+  - Rapport: rapport.md
+  - Documentation classique: doc_classique.md
+  - Documentation technique: doc-technique.md
+
+
